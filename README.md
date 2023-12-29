@@ -9,3 +9,7 @@
 ### Prerequisites
 
 ### Setup
+
+### Use case
+
+## General Directory Structure
