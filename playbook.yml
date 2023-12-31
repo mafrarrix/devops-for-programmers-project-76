@@ -1,4 +1,6 @@
 - name: Main playbook
   hosts: all
   become: yes
-  tasks:
+  roles:
+    - role: geerlingguy.pip
+
