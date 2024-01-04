@@ -5,7 +5,7 @@
 This project demonstrates how to use Ansible to deploy Docker images and manage the deployment of a Redmine application.
 
 ## General Directory Structure
-- **group_vars/**:
+- **group_vars/**: *The directory containing encrypted files used by Ansible*
 - **roles/**: *The directory containing the roles used in the playbook.*
 - **inventory.ini**: *The inventory file for defining the target hosts.
 
