@@ -55,3 +55,4 @@ nano inventory.ini
 ### Use case
 
 ### License
+This project is licensed under the MIT License.
