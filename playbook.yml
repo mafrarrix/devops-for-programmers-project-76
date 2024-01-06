@@ -4,3 +4,9 @@
   roles:
     - role: geerlingguy.pip
 
+  tasks:
+    - name: Install Docker on webservers
+      become: yes
+      apt:
+        update_cache: yes
+       
