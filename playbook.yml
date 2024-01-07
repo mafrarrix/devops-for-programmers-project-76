@@ -3,10 +3,13 @@
   become: yes
   roles:
     - role: geerlingguy.pip
-
+    
   tasks:
     - name: Install Docker on webservers
+      hosts: webservers
       become: yes
-      apt:
-        update_cache: yes
+      roles:
+        - geerlingguy.docker
+      tags:
+        - install_docker
        

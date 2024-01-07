@@ -26,7 +26,7 @@ To get started with this project, make sure you have the following prerequisites
 
 Clone the repository to your local machine using the following command:
 ```bash
-git clone https://github.com/staceynik/devops-for-programmers-project-76.git
+git clone https://github.com/mafrarrix/devops-for-programmers-project-76.git
 ```
 
 ### Step 2: Install Ansible Galaxy Roles
