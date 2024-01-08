@@ -4,13 +4,5 @@
   roles:
     - role: geerlingguy.pip
     - role: geerlingguy.docker
-    
-  tasks:
-    - name: Install Docker on webservers
-      hosts: webservers
-      become: yes
-      roles:
-        - geerlingguy.docker
-      tags:
-        - install_docker
+
        
