@@ -22,14 +22,16 @@ To get started with this project, make sure you have the following prerequisites
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ### Setup
+
 #### Step 1: Clone the Repository
 
 Clone the repository to your local machine using the following command:
+
 ```bash
 git clone https://github.com/mafrarrix/devops-for-programmers-project-76.git
 ```
 
-### Step 2: Install Ansible Galaxy Roles
+#### Step 2: Install Ansible Galaxy Roles
 
 Navigate to the project directory:
 
@@ -43,7 +45,7 @@ Install the required roles from Ansible Galaxy using the following command:
 make requirements
 ```
 
-### Step 3: Configure Inventory
+#### Step 3: Configure Inventory
 
 Edit inventory.ini and configuring the necessary server hosts:
 
@@ -51,7 +53,8 @@ Edit inventory.ini and configuring the necessary server hosts:
 nano inventory.ini
 ```
 
-### Step 4: Deploy to Servers
+#### Step 4: Deploy to Servers
+
 ### Use case
 
 ### License
