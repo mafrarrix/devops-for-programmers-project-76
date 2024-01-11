@@ -5,4 +5,17 @@
     - role: geerlingguy.pip
     - role: geerlingguy.docker
 
+  #inserire task per la copia dei file dockercompose sulla macchina di destinazione
+
+  tasks:
+  #inserire task per la copia dei file dockercompose sulla macchina di destinazione
+  - name: Deploy Redmine
+  #modificar il comando per utilizzare un file docker compose
+    ansible.builtin.command: docker run -d --name some-redmine redmine
+    tags: 
+      - deploy
+  
+  - name:
+
+
        
