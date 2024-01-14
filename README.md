@@ -7,7 +7,7 @@ This project demonstrates how to use Ansible to deploy Docker images and manage 
 ## General Directory Structure
 - **group_vars/**: *The directory containing encrypted files used by Ansible*
 - **roles/**: *The directory containing the roles used in the playbook.*
-- **inventory.ini**: *The inventory file for defining the target hosts.
+- **inventory.ini**: *The inventory file for defining the target hosts*.
 
 ## Installation guide
 
@@ -16,7 +16,7 @@ This project demonstrates how to use Ansible to deploy Docker images and manage 
 To get started with this project, make sure you have the following prerequisites installed on your system:
 
 - [Python 3.x](https://www.python.org/downloads/)
-- [Pipinstallation](https://pip.pypa.io/en/stable/installation/) 
+- [Pip](https://pip.pypa.io/en/stable/installation/) 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Make](https://www.gnu.org/software/make/)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
@@ -56,6 +56,6 @@ nano inventory.ini
 #### Step 4: Deploy to Servers
 
 ### Use case
-
+### Troubleshooter
 ### License
 This project is licensed under the MIT License.
