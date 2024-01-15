@@ -14,8 +14,7 @@
     ansible.builtin.command: docker run -d --name some-redmine redmine
     tags: 
       - deploy
-  
-  - name:
+
 
 
        
