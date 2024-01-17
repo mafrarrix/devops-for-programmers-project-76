@@ -10,8 +10,8 @@
   tasks:
   #inserire task per la copia dei file dockercompose sulla macchina di destinazione
   - name: Deploy Redmine
-  #modificar il comando per utilizzare un file docker compose
-    ansible.builtin.command: docker run -d --name some-redmine redmine
+  #modificar il comando per utilizzare un file docker compose e carica le varibili da un env file
+    ansible.builtin.command: docker run -d --name hexlet-redmine redmine
     tags: 
       - deploy
 
