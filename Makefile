@@ -1,7 +1,7 @@
 requirements:
 	ansible-galaxy install -r requirements.yml --force
 
-install_pip:
+install:
 	ansible-playbook playbook.yml -i inventory.ini -vv
 
 deploy:
