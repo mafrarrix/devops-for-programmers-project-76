@@ -1,19 +1,47 @@
 - name: Main playbook
-  hosts: all
+  hosts: webservers
   become: yes
   roles:
     - role: geerlingguy.pip
-    - role: geerlingguy.docker
-
-  #inserire task per la copia dei file dockercompose sulla macchina di destinazione
 
   tasks:
-  #inserire task per la copia dei file dockercompose sulla macchina di destinazione
-  - name: Deploy Redmine
-  #modificar il comando per utilizzare un file docker compose e carica le varibili da un env file
-    ansible.builtin.command: docker run -d -p 3000:3000  --name some-redmine redmine
-    tags: 
+  - name: Check if Docker is running
+    command: docker info
+    ignore_errors: true
+    register: docker_info
+
+  - name: Install Docker if not installed
+    include_role:
+      name: geerlingguy.docker
+    when: docker_info.rc != 0
+
+  - name: Ensure Docker is started
+    service:
+      name: docker
+      state: started
+    when: docker_info.rc == 0
+
+  #copia il file-template env nel server
+  - name: Copy  file
+    template:
+      src:  .roles/redmine_deploy/templates/.env.j2
+      dest: ~/.env
+      tags:
       - deploy
+
+  # tasks file for roles/redmine_deploy
+  - name: Deploy Redmine
+    community.docker.docker_container:
+      name: hexlet-redmine
+      image: redmine
+      ports:
+        - "3000:3000"
+      env_file: "~/.env"
+      detach: yes
+      tags:
+      - deploy
+      
+  #task che avvia il container docker e imposta le variabili d'ambiente dal file env il file env.j2 viene configuaro sulla base dellevariabili criptate ne valut
 
 
 
