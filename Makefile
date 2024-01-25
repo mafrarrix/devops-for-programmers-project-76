@@ -1,7 +1,7 @@
 setup: requirements install
 
 requirements:
-	ansible-galaxy install -r requirements.yml
+	ansible-galaxy install -r requirements.yml -vv
 
 install:
 	ansible-playbook playbook.yml -i inventory.ini -vv --tags untagged

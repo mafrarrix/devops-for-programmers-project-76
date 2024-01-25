@@ -3,7 +3,7 @@
   become: yes
   roles:
     - role: geerlingguy.pip
-
+  
   tasks:
   - name: Check if Docker is running
     command: docker info
