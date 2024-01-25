@@ -22,9 +22,10 @@
     when: docker_info.rc == 0
 
   #copia il file-template env nel server
+  #TO-DO dichiarare le variabili per il template
   - name: Copy  file
     template:
-      src:  .roles/redmine_deploy/templates/.env.j2
+      src:  ./templates/.env.j2
       dest: ~/.env
       tags:
       - deploy
