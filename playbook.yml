@@ -21,8 +21,7 @@
       state: started
     when: docker_info.rc == 0
 
-  #copia il file-template env nel server
-  #TO-DO dichiarare le variabili per il template
+  #TO-DO dichiarare le variabili per il template nel file "valut.yml"
   - name: Copy  file
     template:
       src:  ./templates/.env.j2
@@ -30,19 +29,17 @@
       tags:
       - deploy
 
-  # tasks file for roles/redmine_deploy
+  #Avvio il container redmine e inietto le variqabili d'ambiente sulla base dellevariabili criptate ne valut
   - name: Deploy Redmine
     community.docker.docker_container:
       name: hexlet-redmine
       image: redmine
       ports:
-        - "3000:3000"
+        - "80:3000"
       env_file: "~/.env"
       detach: yes
       tags:
       - deploy
-      
-  #task che avvia il container docker e imposta le variabili d'ambiente dal file env il file env.j2 viene configuaro sulla base dellevariabili criptate ne valut
 
 
 
