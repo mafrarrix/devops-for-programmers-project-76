@@ -7,4 +7,4 @@ install:
 	ansible-playbook playbook.yml -i inventory.ini -vv --tags untagged
 
 deploy:
-	ansible-playbook playbook.yml -i inventory.ini -vv --skip-tags "deploy"
+	ansible-playbook playbook.yml -i inventory.ini -vv --tags "deploy"
