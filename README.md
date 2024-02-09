@@ -14,13 +14,19 @@ This project demonstrates how to use Ansible to deploy Docker images and manage 
 
 ### Prerequisites
 
-To get started with this project, make sure you have the following prerequisites installed on your system:
+##### To get started with this project, make sure you have the following prerequisites installed on your system:
 
 - [Python 3.x](https://www.python.org/downloads/)
 - [Pip](https://pip.pypa.io/en/stable/installation/) 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Make](https://www.gnu.org/software/make/)
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+##### Choose a cloud infrastructure that includes:
+- VPS with Docker
+- One database cluster
+- Load balancer (optional)
+- register a domain
 
 ### Setup
 
@@ -40,10 +46,10 @@ Navigate to the project directory:
 cd devops-for-programmers-project-76
 ```
 
-Install the required roles from Ansible Galaxy using the following command:
+Install the required and :
 
 ```bash
-make requirements
+make setup
 ```
 
 #### Step 3: Configure Inventory

@@ -3,40 +3,20 @@
   become: yes
   vars_files:
     - group_vars/webservers/vars.yml
- 
+    - group_vars/vault.yml
+   
   roles:
     - role: geerlingguy.pip
-    - role: DataDog.datadog
   
   tasks:
-  - name: Check if Docker is running
-    command: docker info
-    ignore_errors: true
-    register: docker_info
-
-  - name: Install Docker if not installed
-    include_role:
-      name: geerlingguy.docker
-    when: docker_info.rc != 0
-
-  - name: Ensure Docker is started
-    service:
-      name: docker
-      state: started
-    when: docker_info.rc == 0
-
-  # Variabili dichiarate all'interno del file dedicato alle variabili
   - name: Copy  file
     template:
       src:  ./templates/.env.j2
       dest: ~/.env
-      tags:
-      - deploy
-    vars_files:
-      - group_vars/webservers/vars.yml
+    tags:
+    - deploy
 
-  # Avvio il container redmine e inietto le variqabili d'ambiente sulla base dellevariabili criptate ne valut
-  # TODO Come passare la variabile criptata a il docredmine? 
+  # TODO setto le variabili d'ambiente a partire dal file generato
   - name: Deploy Redmine
     community.docker.docker_container:
       name: hexlet-redmine
@@ -45,31 +25,19 @@
         - "{{ porthost }}:{{ portcontainer }}"
       env_file: "~/.env"
       detach: yes
-      tags:
-      - deploy
-      vars_files:
-      - group_vars/webservers/vars.yml
-      - group_vars/valut.yml
-  
-  # TODO Installare e configurare l'agent datadog
-  - name: Install Datadog Agent
-    ansible.builtin.apt:
-      name: datadog-agent
-      state: present
+    tags:
+    - deploy
 
-  - name: Create a metric monitor
-    community.general.datadog_monitor:
-      type: "metric alert"
-      name: "Test monitor"
-      state: "present"
-      renotify_interval: 30
-      renotify_occurrences: 1
-      renotify_statuses: ["warn"]
-      notification_preset_name: "show_all"
-      query: "datadog.agent.up.over('host:host1').last(2).count_by_status()"
-      notification_message: "Host [[host.name]] with IP [[host.ip]] is failing to report to datadog."
-      api_key: "9775a026f1ca7d1c6c5af9d94d9595a4"
-      app_key: "87ce4a24b5553d2e482ea8a8500e71b8ad4554ff"
+- hosts: webservers
+  vars_files:
+    - group_vars/webservers/vars.yml
+    - group_vars/vault.yml
+  tasks:
+    - name: Import the Datadog Agent role from the Datadog collection
+      import_role:
+        name: datadog.datadog
+  vars:
+    datadog_api_key: "{{ datadog_api_key }}"
 
 
 
