@@ -4,7 +4,7 @@ requirements:
 	ansible-galaxy install -r requirements.yml -vv
 
 install:
-	ansible-playbook playbook.yml -i inventory.ini -vv --tags untagged
+	ansible-playbook  --ask-vault-pass playbook.yml -i inventory.ini -vv --tags untagged
 
 deploy:
-	ansible-playbook playbook.yml -i inventory.ini -vv --tags "deploy"
+	ansible-playbook --ask-vault-pass playbook.yml -i inventory.ini -vv --tags "deploy"
