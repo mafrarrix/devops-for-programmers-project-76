@@ -32,27 +32,13 @@ This project demonstrates how to use Ansible to deploy Docker images and manage 
 
 #### Step 1: Clone the Repository
 
-Clone the repository to your local machine using the following command:
+Clone the repository to your local machine using the following command.
 
 ```bash
 git clone https://github.com/mafrarrix/devops-for-programmers-project-76.git
 ```
 
-#### Step 2: Install Ansible Galaxy Roles
-
-Navigate to the project directory:
-
-```bash
-cd devops-for-programmers-project-76
-```
-
-Install the required and :
-
-```bash
-make setup
-```
-
-#### Step 3: Configure Inventory
+#### Step 2: Set up and lunch.
 
 Edit inventory.ini and configuring the necessary server hosts:
 
@@ -60,9 +46,15 @@ Edit inventory.ini and configuring the necessary server hosts:
 nano inventory.ini
 ```
 
-#### Step 4: Deploy to Servers
+#### Step 3: Deploy Redmine to servers
+
+```bash
+make setup
+```
 
 ### Use case
-### Troubleshooter
+
+[Redmine hompage](https://mafrarrix.shop)
+
 ### License
 This project is licensed under the MIT License.
