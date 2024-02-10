@@ -16,7 +16,6 @@
     tags:
     - deploy
 
-  # TODO setto le variabili d'ambiente a partire dal file generato
   - name: Deploy Redmine
     community.docker.docker_container:
       name: hexlet-redmine
