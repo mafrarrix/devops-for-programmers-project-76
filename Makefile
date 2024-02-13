@@ -1,4 +1,3 @@
-PASSWORD_VAULT = $(CURDIR)/vault_password.txt
 setup: requirements install 
 
 requirements:
