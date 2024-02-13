@@ -1,7 +1,9 @@
 - name: Main playbook
   hosts: all
   become: yes
-   
+  vars_files:
+  - group_vars/vault.yml
+
   roles:
     - role: geerlingguy.pip
   
