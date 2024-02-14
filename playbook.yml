@@ -18,7 +18,7 @@
       name: hexlet-redmine
       image: redmine
       ports:
-        - "{{ porthost }}:{{ portcontainer }}"
+        - "{{ porthost }}:3000"
       env_file: "~/.env"
       restart_policy: always
       detach: yes
