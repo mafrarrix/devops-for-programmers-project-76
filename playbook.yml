@@ -26,9 +26,7 @@
     - deploy
 
 - hosts: webservers
-  vars_files:
-    - group_vars/webservers/vars.yml
-    - group_vars/vault.yml
+
   tasks:
     - name: Import the Datadog Agent role from the Datadog collection
       import_role:
