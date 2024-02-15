@@ -1,5 +1,5 @@
 - name: Main playbook
-  hosts: all
+  hosts: webservers
   become: yes
 
   roles:
@@ -18,19 +18,17 @@
       name: hexlet-redmine
       image: redmine
       ports:
-        - "{{ porthost }}:3000"
+        - "{{ porthost }}:{{ portcontainer }}"
       env_file: "~/.env"
       restart_policy: always
       detach: yes
     tags:
     - deploy
 
-- hosts: webservers
 
-  tasks:
-    - name: Import the Datadog Agent role from the Datadog collection
-      import_role:
-        name: datadog.datadog
+  - name: Import the Datadog Agent role from the Datadog collection
+    import_role:
+      name: datadog.datadog
   vars:
     datadog_api_key: "{{ datadog_api_key }}"
 
