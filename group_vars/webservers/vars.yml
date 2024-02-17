@@ -5,3 +5,4 @@ REDMINE_DB_SSLMODE: require
 REDMINE_DB_USERNAME: doadmin
 portcontainer: 3000
 porthost: 8080
+datadog_api_key: "{{ datadog_api_key }}"
