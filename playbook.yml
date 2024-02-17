@@ -1,5 +1,5 @@
 - name: Main playbook
-  hosts: webservers
+  hosts: all
   become: yes
 
   roles:
