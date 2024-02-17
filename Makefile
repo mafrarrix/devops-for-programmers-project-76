@@ -1,3 +1,5 @@
+export PASSWORD_VAULT=./vault_password
+
 setup: requirements install 
 
 requirements:
