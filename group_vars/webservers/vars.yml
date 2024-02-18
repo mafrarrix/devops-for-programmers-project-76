@@ -3,6 +3,7 @@ REDMINE_DB_PORT: 25060
 REDMINE_DB_DATABASE: defaultdb
 REDMINE_DB_SSLMODE: require
 REDMINE_DB_USERNAME: doadmin
+datadog_api_key: "{{ datadog_api_key }}"
 portcontainer: 3000
 porthost: 8080
-datadog_api_key: "{{ datadog_api_key }}"
+

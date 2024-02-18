@@ -1,34 +1,19 @@
 - name: Main playbook
   hosts: all
   become: yes
-
   roles:
     - role: geerlingguy.pip
   
-  tasks:
-
-  - name: Copy file
-    template:
-      src:  ./templates/.env.j2
-      dest: ~/.env
-    tags:
-    - deploy
-
-  - name: Deploy Redmine
-    community.docker.docker_container:
-      name: hexlet-redmine
-      image: redmine
-      ports:
-        - "{{ porthost }}:{{ portcontainer }}"
-      env_file: "~/.env"
-      restart_policy: always
-      detach: yes
-    tags:
-    - deploy
+  
+- name: Deploy Redmine on webservers
+  hosts: webservers
+  become: true
+  roles:
+    - redmine_deploy
 
 - name: Instsall Datadog Agent on servers
   hosts: webservers
   roles:
-    - { role: datadog.datadog, become: yes }
+    - { role: datadog.datadog, become: yes }    
   
        
