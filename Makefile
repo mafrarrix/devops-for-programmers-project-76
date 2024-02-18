@@ -11,6 +11,9 @@ install:
 deploy:
 	ansible-playbook --vault-password-file $(PASSWORD_VAULT)  playbook.yml -i inventory.ini -vv --tags "deploy"
 
+refresh-params:
+	ansible-playbook --vault-password-file $(PASSWORD_VAULT)  playbook.yml -i inventory.ini -vv --tags "refresh-params"
+
 encrypt-vault:
 	ansible-vault encrypt group_vars/webservers/vault.yml
 
