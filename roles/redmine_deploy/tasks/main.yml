@@ -10,6 +10,7 @@
   template:
     src:  ./templates/.env.j2
     dest: ~/.env
+    mode: 0644
   tags:
    - refresh-params
    - deploy

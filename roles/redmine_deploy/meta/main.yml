@@ -1,7 +1,7 @@
 galaxy_info:
   author: Marco Ferrari
-  description: your role description
-  company: your company (optional)
+  description: Role for manage installation redmine container
+  company: my company
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
