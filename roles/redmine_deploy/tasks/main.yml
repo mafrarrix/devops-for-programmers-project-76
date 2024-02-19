@@ -7,20 +7,6 @@
   tags:
    - refresh-params
    - deploy
-- name: Riavvia il container Docker
-  docker_container:
-    name: hexlet-redmine
-    state: stopped
-  tags:
-    - refresh-params
-      
-- name: Riavvia il container Docker
-  docker_container:
-    name: hexlet-redmine
-    state: started
-  tags:
-    - refresh-params
-
 
 - name: Deploy Redmine
   community.docker.docker_container:
@@ -33,3 +19,17 @@
     detach: yes
   tags:
    - deploy
+
+- name: Stop il container Docker
+  docker_container:
+    name: hexlet-redmine
+    state: stopped
+  tags:
+    - refresh-params
+      
+- name: Start il container Docker
+  docker_container:
+    name: hexlet-redmine
+    state: started
+  tags:
+    - refresh-params
