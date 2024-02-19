@@ -5,8 +5,8 @@
     - role: geerlingguy.pip
   
   
-- name: Deploy Redmine on webservers
-  hosts: webservers
+- name: Deploy Redmine on servers
+  hosts: all
   become: true
   roles:
     - redmine_deploy
